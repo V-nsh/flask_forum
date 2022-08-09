@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <div class="main">
+      <ol id="list">
+        {% for d in data %}
+        <a href="/thread?connectID={{ d[6] }}">
+          <li class="row">
+            <h4 class="title">{{ d[1] }}</h4>
+            <div class="bottom">
+              <script>
+                <p class="timestamp">
+                  {new Date(Date.now().toLocaleString())}
+                </p>;
+              </script>
+              <p name="{{ d[6] }}">Post ID: {{ d[6] }}</p>
+              <p class="comment-count">View comments-></p>
+              <!--p class="comment-count">view {{ count }} comments</p-->
+            </div>
+          </li>
+        </a>
+        {% endfor %}
+      </ol>
+
+      <a href="/create">
+        <input
+          type="submit"
+          className="btn btn-success post-editor-button"
+          class="btn"
+          value="+ Create Thread"
+        />
+      </a>
+    </div>
+    <style>
+      body {
+        margin: 10px 60px;
+      }
+      a {
+        text-decoration: none;
+        color: black;
+      }
+      h1,
+      h4,
+      ol {
+        margin: 0;
+      }
+      p {
+        margin: 5px 0;
+      }
+      .top-bar {
+        background-color: skyblue;
+        padding: 0 40px;
+      }
+      .main {
+        background-color: #f6f6ef;
+        padding: 10px 15px;
+      }
+      .row {
+        padding: 5px 0;
+      }
+      .bottom {
+        display: flex;
+        color: grey;
+        font-size: 12px;
+      }
+      .timestamp {
+        padding-right: 10px;
+      }
+    </style>
+  </body>
+</html>

@@ -1,0 +1,103 @@
+<body>
+  {% for d in data %}
+  <form action='{{ url_for("delete") }}' method="post">
+    <div class="top-bar">
+      <h1>{{ d[1] }}</h1>
+    </div>
+    <div class="header">
+      <h4 class="title">{{ d[0] }}</h4>
+      <div class="bottom">
+        <p class="timestamp">August 8, 2022</p>
+      </div>
+    </div>
+    <div class="comments">
+      <div class="comment">
+        <div class="top-comment">
+          <p class="user">{{ d[3] }}</p>
+          <!--p class="timestamp">{new Date(Date.now().toLocaleString())}</p-->
+        </div>
+        <div class="comment-content">{{ d[5] }}</div>
+      </div>
+      <div>
+        <input type="int" name="id2" placeholder="ID" required />
+        <a href="/delete">
+          <input type="submit" class="btn" value="Delete" />
+        </a>
+      </div>
+    </div>
+  </form>
+  {% endfor %}
+  <form action='{{ url_for("thread") }}' method="post">
+    <textarea
+      type="text"
+      name="comments"
+      placeholder="Add Comment"
+      requried
+    ></textarea>
+    <input type="int" name="id1" placeholder="ID" required /><br /><br />
+    <input
+      type="int"
+      name="user"
+      placeholder="User Name"
+      required
+    /><br /><br />
+    <a href="/thread">
+      <input type="submit" class="btn" value="comment" />
+    </a>
+  </form>
+  <style>
+    body {
+      margin: 10px 60px;
+    }
+    a {
+      text-decoration: none;
+      color: black;
+    }
+    h1,
+    h4,
+    ol {
+      margin: 0;
+    }
+    p {
+      margin: 5px 0;
+    }
+    textarea {
+      width: 80%;
+      height: 80px;
+    }
+    button {
+      display: block;
+      margin: 10px 0;
+    }
+    .top-bar {
+      background-color: skyblue;
+      padding: 0 40px;
+    }
+    .main {
+      background-color: #f6f6ef;
+      padding: 10px 40px;
+    }
+    .comments {
+      margin: 40px 0;
+    }
+    .comment {
+      margin: 10px 0;
+    }
+    .row {
+      padding: 5px 0;
+    }
+    .bottom,
+    .top-comment {
+      display: flex;
+      color: grey;
+      font-size: 12px;
+    }
+    .timestamp {
+      padding-right: 10px;
+    }
+    .comment-ts {
+      padding-left: 10px;
+    }
+  </style>
+  <!--/body-->
+</body>
